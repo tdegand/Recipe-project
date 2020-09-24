@@ -20,7 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     ingredient: {
       type: DataTypes.STRING,
       allowNull:false 
-    }
+    },
+     createdAt: Sequelize.DATE, 
+     updatedAt: Sequelize.DATE,
   });
 
   return Recipe;
