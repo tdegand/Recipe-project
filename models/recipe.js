@@ -2,6 +2,7 @@
 
 const Sequelize = require('sequelize');
 
+//recipe model
 module.exports = (sequelize) => {
     class Recipe extends Sequelize.Model {}
     Recipe.init({
@@ -22,8 +23,6 @@ module.exports = (sequelize) => {
         type: Sequelize.STRING,
         allowNull:false 
       },
-       createdAt: Sequelize.DATE, 
-       updatedAt: Sequelize.DATE,
     }, { sequelize });
   
     return Recipe;

@@ -1,37 +1,38 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const Sequelize = require("sequelize")
-const logger = require('morgan');
-const mysql = require('mysql2');
 
+const express = require('express');
+const Sequelize = require("sequelize");
+const logger = require('morgan');
+const bodyParser = require('body-parser')
 const router = require('./routes/index');
 
 const app = express();
 
+//log requests to console
 app.use(logger('dev'));
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 
+
+//api routes 
 app.use(router);
 
-//DB connection
-const sequelize = mysql.createConnection({
-    host: "52.86.154.61",
-    user: "degandt",
-    password: "CdHBpSUCPwWwKpwa"
-});
+// parse application/json
+app.use(bodyParser.json())
 
-sequelize.connect((err) => {
-    if(err){
-        console.log('error, cannot connect to DB', err);
-        return;
-    } else {
-        console.log("YAY connection established!")
-    }
+
+//DB connection
+const sequelize = new Sequelize('degandt', 'degandt', 'CdHBpSUCPwWwKpwa', {
+  host: "52.86.154.61",
+  dialect: 'mysql'
 })
+
+//if connection is good log message to console else log error
+sequelize.authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  })
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
