@@ -4,6 +4,7 @@ const Sequelize = require("sequelize");
 const logger = require('morgan');
 const bodyParser = require('body-parser')
 const router = require('./routes/index');
+const db = require('./models');
 
 const app = express();
 
@@ -57,8 +58,10 @@ app.use((err, req, res, next) => {
 app.set('port', process.env.PORT || 5000);
 
 // start listening on our port
-const server = app.listen(app.get('port'), () => {
-  console.log(`Express server is listening on port ${server.address().port}`);
+const server = db.sequelize.sync().then(function () {
+    app.listen(app.get('port'), () => {
+    console.log(`Express server is listening on port ${server.address().port}`);
+  });
 });
 
 module.exports = app;
