@@ -93,8 +93,24 @@ router.post('/api/recipes', asyncHandler(async(req, res, next) => {
  /**
  * Delete a recipe (DELETE)
  */
-router.delete('/api/recipes/:id', function(req, res, next) {
-  
-});
+router.delete('/api/recipes/:id', asyncHandler(async(req, res, next) =>{
+  try{
+
+    const curRecipe = await Recipe.findByPk(req.params.id)
+
+      await curRecipe.destroy({
+        where: {
+            id: req.params.id
+        }
+      })
+      res.status(204)
+      res.json({
+        message: "Course deleted!"
+      })
+  } catch(error) {
+      res.status(400)
+      res.json({ error })
+  }
+}));
 
 module.exports = router;
