@@ -34,14 +34,14 @@ sequelize.authenticate()
     console.error('Unable to connect to the database:', err);
   })
 
-// send 404 if no other route matched
+// send 404 if no other route matches
 app.use((req, res) => {
   res.status(404).json({
     message: 'Route Not Found',
   });
 });
 
-// setup a global error handler
+// setup a global error handler of this app
 app.use((err, req, res, next) => {
   if (enableGlobalErrorLogging) {
     console.error(`Global error handler: ${JSON.stringify(err.stack)}`);
