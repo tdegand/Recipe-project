@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { Recipe } = require('../models/recipe');
+const { Recipe } = require('../models');
 
 router.use(express.json());
 
@@ -28,7 +28,6 @@ router.get('/api/recipes', asyncHandler(async(req, res) => {
     //query's the DB for all instances and returns them
     const recipes = await Recipe.findAll()
       res.status(200)
-      console.log(recipes)
       res.json({ recipes })
   } catch(error) {
       res.status(404)
@@ -38,21 +37,59 @@ router.get('/api/recipes', asyncHandler(async(req, res) => {
  /**
  * Get a single recipe (GET)
  */
-router.get('/api/recipes/:id', function(req, res, next) {
-  
-});
+router.get('/api/recipes/:id', asyncHandler(async(req, res) => {
+  try {
+    //query's the DB for all instances and returns them
+    const recipe = await Recipe.findOne({
+      where: {
+        id: req.params.id
+      }
+    });
+    if(recipe) {
+      res.status(200)
+      res.json({ recipe })
+    } else {
+      res.status(404).json({
+        message: "Recipe does not exist"
+      })
+    }
+  } catch(error) {
+      res.status(404)
+      res.json({ error })
+  }
+}));
   /**
  * update a recipe (PUT)
  */
-router.put('/api/recipes/:id', function(req, res, next) {
-  
-});
+router.put('/api/recipes/:id', asyncHandler(async(req, res, next) => {
+  try {
+    const curRecipe = await Recipe.findByPk(req.params.id)
+    if(curRecipe){
+      curRecipe.update(req.body)
+      res.status(204).end();
+    } else {
+      res.status(404).json({
+        message: "Course could not be found"
+      })
+    }
+  } catch(error) {
+    res.status(404)
+    res.json({ error })
+  }
+}));
   /**
  * Create a new recipe (POST)
  */
-router.post('/api/recipes', function(req, res, next) {
-  
-});
+router.post('/api/recipes', asyncHandler(async(req, res, next) => {
+  try {
+    res.status(201)
+    const recipe = await Recipe.create(req.body)
+    res.location("/api/courses/" + recipe.id).end();
+  }catch(error) {
+    res.status(400)
+    res.json({ error })
+  } 
+}));
  /**
  * Delete a recipe (DELETE)
  */
