@@ -2,7 +2,9 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const Sequelize = require("sequelize")
 const logger = require('morgan');
+const mysql = require('mysql2');
 
 const router = require('./routes/index');
 
@@ -16,8 +18,20 @@ app.use(cookieParser());
 app.use(router);
 
 //DB connection
+const sequelize = mysql.createConnection({
+    host: "52.86.154.61",
+    user: "degandt",
+    password: "CdHBpSUCPwWwKpwa"
+});
 
-
+sequelize.connect((err) => {
+    if(err){
+        console.log('error, cannot connect to DB', err);
+        return;
+    } else {
+        console.log("YAY connection established!")
+    }
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
