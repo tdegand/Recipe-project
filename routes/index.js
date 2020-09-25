@@ -25,6 +25,7 @@ router.get('/', function(req, res, next) {
  */
 router.get('/api/recipes', asyncHandler(async(req, res) => {
   try {
+    //query's the DB for all instances and returns them
     const recipes = await Recipe.findAll()
       res.status(200)
       console.log(recipes)
