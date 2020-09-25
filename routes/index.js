@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const { Recipes } = require('../models/recipe');
+const { Recipe } = require('../models/recipe');
 
 router.use(express.json());
 
-//Async handler for this application
+//async handler for this application
 function asyncHandler(cb){
   return async(req, res, next) => {
     try {
@@ -23,9 +23,17 @@ router.get('/', function(req, res, next) {
 /**
  * Get all recipes (GET)
  */
-router.get('/api/recipes', function(req, res, next) {
-  
-});
+router.get('/api/recipes', asyncHandler(async(req, res) => {
+  try {
+    const recipes = await Recipe.findAll()
+      res.status(200)
+      console.log(recipes)
+      res.json({ recipes })
+  } catch(error) {
+      res.status(404)
+      res.json({ error })
+  }
+}));
  /**
  * Get a single recipe (GET)
  */
