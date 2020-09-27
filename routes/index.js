@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { Recipe } = require('../models');
+const { check, validationResult } = require('express-validator');
 
 router.use(express.json());
 
@@ -64,7 +65,24 @@ router.get('/api/recipes/:id', asyncHandler(async(req, res) => {
   /**
  * update a recipe (PUT)
  */
-router.put('/api/recipes/:id', asyncHandler(async(req, res, next) => {
+router.put('/api/recipes/:id', [
+  check('name')
+    .exists({ checkNull: true })
+    .withMessage('Please provide a name'),
+  check('description')
+    .exists({ checkNull: true })
+    .withMessage('Please provide a description'),
+  check('ingredient')
+    .exists({ checkNull: true })
+    .withMessage('Please provide a list of Ingredients'),
+],asyncHandler(async(req, res, next) => {
+  const errors = validationResult(req)
+
+  if (!errors.isEmpty()) {
+    console.log(errors);
+    return res.status(400).json({ errors: errors.array() })
+  }
+  
   try {
     const curRecipe = await Recipe.findByPk(req.params.id)
     if(curRecipe){
@@ -83,7 +101,22 @@ router.put('/api/recipes/:id', asyncHandler(async(req, res, next) => {
   /**
  * Create a new recipe (POST)
  */
-router.post('/api/recipes', asyncHandler(async(req, res, next) => {
+router.post('/api/recipes', [
+  check('name')
+    .exists({ checkNull: true })
+    .withMessage('Please provide a name'),
+  check('description')
+    .exists({ checkNull: true })
+    .withMessage('Please provide a description'),
+  check('ingredient')
+    .exists({ checkNull: true })
+    .withMessage('Please provide a list of Ingredients'),
+], asyncHandler(async(req, res, next) => {
+  const errors = validationResult(req)
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() })
+  }
   try {
     res.status(201)
     const recipe = await Recipe.create(req.body)
