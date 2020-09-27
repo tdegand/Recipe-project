@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div>
-      this.state.recipes.map(recipe => {
+      { this.state.recipes.map(recipe =>
         <Recipe name={recipe.name} description={recipe.description} ingredients={recipe.ingredient}/>)
       }
       </div>
