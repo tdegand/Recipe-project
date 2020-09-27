@@ -26,12 +26,14 @@ router.get('/', function(req, res, next) {
 router.get('/api/recipes', asyncHandler(async(req, res) => {
   try {
     //query's the DB for all instances and returns them
-    const recipes = await Recipe.findAll()
+    const recipes = await Recipe.findAll({
+      attributes: ['id', 'name', 'description', 'ingredient']
+    })
       res.status(200)
       res.json({ recipes })
   } catch(error) {
       res.status(404)
-      res.json({ error })
+      res.json({ error: "Items could not be found" })
   }
 }));
  /**
@@ -43,7 +45,8 @@ router.get('/api/recipes/:id', asyncHandler(async(req, res) => {
     const recipe = await Recipe.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      attributes: ['id', 'name', 'description', 'ingredient']
     });
     if(recipe) {
       res.status(200)
@@ -69,7 +72,7 @@ router.put('/api/recipes/:id', asyncHandler(async(req, res, next) => {
       res.status(204).end();
     } else {
       res.status(404).json({
-        message: "Course could not be found"
+        message: "Recipe could not be found"
       })
     }
   } catch(error) {
@@ -84,7 +87,7 @@ router.post('/api/recipes', asyncHandler(async(req, res, next) => {
   try {
     res.status(201)
     const recipe = await Recipe.create(req.body)
-    res.location("/api/courses/" + recipe.id).end();
+    res.location("/api/recipe/" + recipe.id).end();
   }catch(error) {
     res.status(400)
     res.json({ error })
@@ -105,7 +108,7 @@ router.delete('/api/recipes/:id', asyncHandler(async(req, res, next) =>{
       })
       res.status(204)
       res.json({
-        message: "Course deleted!"
+        message: "Recipe deleted!"
       })
   } catch(error) {
       res.status(400)
