@@ -4,9 +4,13 @@ const Sequelize = require("sequelize");
 const logger = require('morgan');
 const bodyParser = require('body-parser')
 const router = require('./routes/index');
+const cors = require('cors');
 const db = require('./models');
 
 const app = express();
+
+//add cross resource sharing support
+app.use(cors());
 
 //log requests to console
 app.use(logger('dev'));
@@ -17,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(router);
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 
 //DB connection

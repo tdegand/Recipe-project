@@ -1,23 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Recipe from './components/recipe.js';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+
+  state = {
+    recipes: []
+  }
+
+  componentDidMount(){
+    axios.get(`http://localhost:5000/api/recipes`)
+    .then(data => {
+      const recipes = data.data;
+      console.log(recipes)
+      this.setState({ recipes });
+    })
+  }
+
+  render() {
+    return (
+      <div>
+      this.state.recipes.map(recipe => {
+        <Recipe name={recipe.name} description={recipe.description} ingredients={recipe.ingredient}/>)
+      }
+      </div>
+    );
+  }
+  
 }
 
 export default App;
