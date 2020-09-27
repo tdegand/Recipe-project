@@ -98,9 +98,9 @@ router.post('/api/recipes', asyncHandler(async(req, res, next) => {
  */
 router.delete('/api/recipes/:id', asyncHandler(async(req, res, next) =>{
   try{
-
+    //find the recipe first
     const curRecipe = await Recipe.findByPk(req.params.id)
-
+    //if found then delete it
       await curRecipe.destroy({
         where: {
             id: req.params.id
