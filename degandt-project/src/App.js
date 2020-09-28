@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import RecipeList from './components/recipeList.js';
 import UpdateForm from './components/updateForm.js';
 import NewForm from './components/newForm.js';
+import Delete from './components/delete.js';
 import axios from 'axios';
 import {
   BrowserRouter as Router,
@@ -45,6 +46,11 @@ class App extends Component {
                 <Route 
                 exact path="/recipe/add" 
                 render={() => (<NewForm />)} 
+                />
+                {/*Path for delete form */}
+                <Route 
+                exact path="/recipe/delete/:id" 
+                render={() => (<Delete recipes={this.state.recipes} />)} 
                 />
               </Switch>
           </div>
