@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import RecipeList from './components/recipeList.js';
+import UpdateForm from './components/updateForm.js';
+import NewForm from './components/newForm.js';
 import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom"
-import UpdateForm from './components/updateForm.js';
+
 
 
 
@@ -46,7 +48,7 @@ class App extends Component {
                 {/*Path for creation form */}
                 <Route 
                 exact path="/recipe/add" 
-                render={() => (<newForm />)} 
+                render={() => (<NewForm />)} 
                 />
               </Switch>
             </div>

@@ -1,5 +1,4 @@
-import REact from 'react';
-import UpdateForm from './updateForm';
+import React from 'react';
 
  const NewForm = () => {
     return(
@@ -36,4 +35,4 @@ import UpdateForm from './updateForm';
     )
 }
 
-export default UpdateForm
+export default NewForm
