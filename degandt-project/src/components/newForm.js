@@ -12,13 +12,14 @@ import { Link, withRouter } from "react-router-dom";
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post (`http://localhost:5000/api/recipes`, { ...values },
+        axios.post(`http://localhost:5000/api/recipes`, { values },
         {
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            'Content-Type': 'application/json charset=UTF-8'
         }
         })
         .then(res => {
+            console.log(values)
             console.log(res);
             console.log(res.data.json);
         })

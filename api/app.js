@@ -22,7 +22,6 @@ app.use(router);
 
 // parse application/json
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //DB connection
