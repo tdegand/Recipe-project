@@ -16,8 +16,8 @@ class App extends Component {
     recipes: []
   }
 
-  componentDidMount(){
-    axios.get(`http://localhost:5000/api/recipes`)
+  async componentDidMount(){
+    await axios.get(`http://localhost:5000/api/recipes`)
     .then(data => {
       const recipes = data.data.recipes;
       console.log(recipes)
@@ -30,7 +30,6 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="container"> 
-            <div>
               <Switch>
                 {/*Path for home page */}
                 <Route 
@@ -39,7 +38,7 @@ class App extends Component {
                 />
                 {/*Path for update form */}
                 <Route 
-                exact path="/recipe/:id" 
+                exact path="/recipe/update/:id" 
                 render={() => (<UpdateForm recipes={this.state.recipes}/>)} 
                 />
                 {/*Path for creation form */}
@@ -48,7 +47,6 @@ class App extends Component {
                 render={() => (<NewForm />)} 
                 />
               </Switch>
-            </div>
           </div>
         </div>
       </Router>

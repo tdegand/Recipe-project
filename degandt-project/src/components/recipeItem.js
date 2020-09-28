@@ -8,7 +8,7 @@ const Recipe = props => {
                 <h2>{props.name}</h2>
                 <p>{props.description}</p>
                 <p>{props.ingredients}</p>
-                <Link to={`/recipe/${props.id}`}>
+                <Link to={`/recipe/update/${props.id}`}>
                     <button>Update</button>
                 </Link>
                 <button>Delete</button>

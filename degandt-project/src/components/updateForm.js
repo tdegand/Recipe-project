@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from "react-router-dom";
 
 class UpdateForm extends Component {
 
@@ -25,27 +26,27 @@ class UpdateForm extends Component {
         render() {
             return(
                 <form className="search-form">
-                    <label for="name">
+                    {/* <label for="name">
                         Name:
-                    </label>
+                    </label> */}
                     <input 
                         type="text" 
                         name="name" 
                         placeholder={this.props.name} 
                         required
                     />
-                    <label for="description">
+                    {/* <label for="description">
                         Description:
-                    </label>
+                    </label> */}
                     <input 
                         type="text" 
                         name="description" 
                         placeholder={this.props.description}
                         required
                     />
-                    <label for="ingredients">
+                    {/* <label for="ingredients">
                         Ingredients:
-                    </label>
+                    </label> */}
                     <input 
                         type="text" 
                         name="ingredients" 
@@ -53,6 +54,9 @@ class UpdateForm extends Component {
                         required
                     />
                     <button type="submit" className="submit-button">Submit</button>
+                    <Link to="/">
+                        <button>Cancel</button>
+                    </Link>
                 </form>
             )
         }

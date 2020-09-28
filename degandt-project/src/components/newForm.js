@@ -1,37 +1,35 @@
-import Axios from "axios";
+import axios from "axios";
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
  const NewForm = () => {
 
     const [values, setValues] = useState({
         name: '',
         description: '',
-        ingredients: '',
+        ingredient: '',
     });
-
-    const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newRecipe = {
-            name: this.state.name,
-            description: this.state.description,
-            ingredient: this.state.description
+        axios.post (`http://localhost:5000/api/recipes`, { ...values },
+        {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
-        
-        Axios.post (`localhost:5000/api/recipes`, { newRecipe })
+        })
         .then(res => {
             console.log(res);
-            console.log(res.data);
+            console.log(res.data.json);
         })
+        .catch(res => console.log('error', res))
     }
 
     const handleNameInputChange = (event) => {
         event.persist();
         setValues((values) => ({
             ...values,
-            firstName: event.target.value,
+            name: event.target.value,
         }));
     };
 
@@ -39,7 +37,7 @@ import { withRouter } from "react-router-dom";
         event.persist();
         setValues((values) => ({
             ...values,
-            firstName: event.target.value,
+            description: event.target.value,
         }));
     };
 
@@ -47,16 +45,16 @@ import { withRouter } from "react-router-dom";
         event.persist();
         setValues((values) => ({
             ...values,
-            firstName: event.target.value,
+            ingredient: event.target.value,
         }));
     };
     
 
         return(
             <form className="search-form" onSubmit={handleSubmit}>
-                <label for="name">
+                <label>
                     Name:
-                </label>
+                
                 <input 
                     type="text" 
                     name="name" 
@@ -65,29 +63,35 @@ import { withRouter } from "react-router-dom";
                     value={values.name}
                     onChange={handleNameInputChange}
                 />
-                <label for="description">
-                    Description:
                 </label>
+                <label>
+                    Description:
+                
                 <input 
                     type="text" 
                     name="description" 
-                    placeholder="description" 
+                    placeholder="Description" 
                     required
                     value={values.description}
                     onChange={handleDescriptionInputChange}
                 />
-                <label for="ingredients">
-                    Ingredients:
                 </label>
+                <label>
+                    Ingredients:
+                
                 <input 
                     type="text" 
                     name="ingredients" 
-                    placeholder="ingredients"  
+                    placeholder="Ingredients"  
                     required
-                    value={values.ingredients}
+                    value={values.ingredient}
                     onChange={handleIngredientsInputChange}
                 />
-                <button type="submit" className="submit-button">Submit</button>
+                </label>
+                <button type="submit">Submit</button>
+                <Link to="/">
+                    <button>Cancel</button>
+                </Link>
             </form>
         ) 
 }
