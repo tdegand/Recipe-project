@@ -5,6 +5,7 @@ const RecipeList = props => {
 
     let recipes = props.recipes.map(recipe =>
             <Recipe
+                key={recipe.id}
                 id={recipe.id}
                 name={recipe.name}
                 description={recipe.description}
