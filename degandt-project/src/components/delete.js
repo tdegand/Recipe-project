@@ -17,6 +17,7 @@ const Delete = (props) => {
     };
 
     const handleDelete = (e) => {
+        console.log(props.recipes.id)
         axios.delete(`http://localhost:5000/api/recipes/${values.id}`, { params: { id: values.id } })
         .then(res => {
             console.log(res);
@@ -28,8 +29,6 @@ const Delete = (props) => {
     return(
 
         <form className="search-form" onSubmit={handleDelete}>
-            <h3>{props.recipes.id}</h3>
-
             <label>
                 Confirm ID:
             <input 
@@ -37,7 +36,7 @@ const Delete = (props) => {
                 name="ID" 
                 placeholder="Type ID to confirm"
                 required
-                value={values.name}
+                value={values.id}
                 onChange={handleIdInputChange}
             />
             </label>
