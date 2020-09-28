@@ -13,7 +13,7 @@ class App extends Component {
   componentDidMount(){
     axios.get(`http://localhost:5000/api/recipes`)
     .then(data => {
-      const recipes = data.data;
+      const recipes = data.data.recipes;
       console.log(recipes)
       this.setState({ recipes });
     })
@@ -22,9 +22,7 @@ class App extends Component {
   render() {
     return (
       <div>
-      { this.state.recipes.map(recipe =>
-        <Recipe name={recipe.name} description={recipe.description} ingredients={recipe.ingredient}/>)
-      }
+       <Recipe recipes={this.state}/>
       </div>
     );
   }

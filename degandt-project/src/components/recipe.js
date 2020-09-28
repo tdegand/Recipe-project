@@ -1,20 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-function Recipe(props) {
+class Recipe extends Component {
 
-    return(
-        <div>
-           <h2>{props.name}</h2>
-           <p>Description</p>
-           <h3>Ingredients</h3>
-            <ul>
-                <li>List</li>
-                <li>List</li>
-                <li>List</li>
-            </ul> 
-        </div>
-    )
-}
+    render() {
+        return(
+            <div className="recipes">
+                {this.props.map(recipe => (
+                    <div>
+                        <h2>{recipe.name}</h2>
+                        <p>{recipe.description}</p>
+                        <p>{recipe.ingredient}</p>
+                    </div>
+                ))}
+            </div> 
+        );
+    }
+} 
 
 
 export default Recipe;
