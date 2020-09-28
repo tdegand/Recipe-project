@@ -17,10 +17,7 @@ const Delete = (props) => {
     };
 
     const handleDelete = (e) => {
-        axios.delete({
-            method: 'delete',
-            url: `http://localhost:5000/api/recipes/${props.id}`,
-        })
+        axios.delete(`http://localhost:5000/api/recipes/${values.id}`, { params: { id: values.id } })
         .then(res => {
             console.log(res);
             console.log(res.data.json);
@@ -31,10 +28,10 @@ const Delete = (props) => {
     return(
 
         <form className="search-form" onSubmit={handleDelete}>
-            <h3>${props.recipes.id}</h3>
+            <h3>{props.recipes.id}</h3>
 
             <label>
-                Name:
+                Confirm ID:
             <input 
                 type="number" 
                 name="ID" 
@@ -52,4 +49,4 @@ const Delete = (props) => {
     );
 }
 
-export default Delete
+export default withRouter(Delete)
