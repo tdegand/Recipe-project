@@ -9,6 +9,7 @@ import {
 
 
 
+
 class App extends Component {
 
   state = {
@@ -34,11 +35,6 @@ class App extends Component {
                 {/*Path for home page */}
                 <Route 
                 exact path="/" 
-                render={() => (<RecipeList recipes={this.state.recipes}/>)} 
-                />
-                {/*Path for single recipe */}
-                <Route 
-                exact path="/recipe/:id" 
                 render={() => (<RecipeList recipes={this.state.recipes}/>)} 
                 />
                 {/*Path for creation form */}
