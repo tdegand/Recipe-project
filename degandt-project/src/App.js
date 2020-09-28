@@ -6,6 +6,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom"
+import UpdateForm from './components/updateForm.js';
 
 
 
@@ -37,10 +38,15 @@ class App extends Component {
                 exact path="/" 
                 render={() => (<RecipeList recipes={this.state.recipes}/>)} 
                 />
+                {/*Path for update form */}
+                <Route 
+                exact path="/recipe/:id" 
+                render={() => (<UpdateForm recipes={this.state.recipes}/>)} 
+                />
                 {/*Path for creation form */}
                 <Route 
                 exact path="/recipe/add" 
-                render={() => (<RecipeList recipes={this.state}/>)} 
+                render={() => (<newForm />)} 
                 />
               </Switch>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Recipe from './recipeItem.js'
 
 const RecipeList = props => {
@@ -15,6 +16,12 @@ const RecipeList = props => {
 
         return(
             <div className="recipes">
+                <div>
+                    <h3>Recipes!</h3>
+                    <Link to="/recipe/add">
+                        <button>Add</button>
+                    </Link>
+                </div>
                 <ul>
                     { recipes }
                 </ul>

@@ -8,12 +8,10 @@ const Recipe = props => {
                 <h2>{props.name}</h2>
                 <p>{props.description}</p>
                 <p>{props.ingredients}</p>
-                <Link>
+                <Link to={`/recipe/${props.id}`}>
                     <button>Update</button>
                 </Link>
-                <Link>
-                    <button>Update</button>
-                </Link>
+                <button>Delete</button>
         </li>
     )
 }
