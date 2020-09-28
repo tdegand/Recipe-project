@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
-import Recipe from './components/recipe.js';
+import RecipeList from './components/recipeList.js';
 import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom"
 
 
 
@@ -21,9 +26,32 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-       <Recipe recipes={this.state}/>
-      </div>
+      <Router>
+        <div className="App">
+          <div className="container"> 
+            <div>
+              <Switch>
+                {/*Path for home page */}
+                <Route 
+                exact path="/" 
+                render={() => (<RecipeList recipes={this.state.recipes}/>)} 
+                />
+                {/*Path for single recipe */}
+                <Route 
+                exact path="/recipe/:id" 
+                render={() => (<RecipeList recipes={this.state.recipes}/>)} 
+                />
+                {/*Path for creation form */}
+                <Route 
+                exact path="/recipe/add" 
+                render={() => (<RecipeList recipes={this.state}/>)} 
+                />
+              </Switch>
+            </div>
+          </div>
+        </div>
+      </Router>
+      
     );
   }
   
