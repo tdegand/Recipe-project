@@ -25,6 +25,10 @@ class App extends Component {
     })
   }
 
+  componentWillUnmount(){
+
+  }
+
   render() {
     return (
       <Router>
