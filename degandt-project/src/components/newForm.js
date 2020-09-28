@@ -54,7 +54,6 @@ import { Link, withRouter } from "react-router-dom";
             <form className="search-form" onSubmit={handleSubmit}>
                 <label>
                     Name:
-                
                 <input 
                     type="text" 
                     name="name" 
@@ -66,7 +65,6 @@ import { Link, withRouter } from "react-router-dom";
                 </label>
                 <label>
                     Description:
-                
                 <input 
                     type="text" 
                     name="description" 
@@ -78,7 +76,6 @@ import { Link, withRouter } from "react-router-dom";
                 </label>
                 <label>
                     Ingredients:
-                
                 <input 
                     type="text" 
                     name="ingredients" 
