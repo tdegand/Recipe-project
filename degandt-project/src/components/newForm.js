@@ -13,7 +13,7 @@ import { Link, withRouter } from "react-router-dom";
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(values)
-        axios.post(`http://localhost:5000/api/recipes`, JSON.stringify({ values }))
+        axios.post(`http://localhost:5000/api/recipes`, values)
         .then(res => {
             console.log(values)
             console.log(res);
