@@ -42,9 +42,9 @@ const Delete = (props) => {
                 onChange={handleIdInputChange}
             />
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit" className="submitButton">Submit</button>
             <Link to="/">
-                <button>Cancel</button>
+                <button className="cancel">Cancel</button>
             </Link>
         </form>
     );

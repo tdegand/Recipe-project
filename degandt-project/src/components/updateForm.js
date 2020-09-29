@@ -99,7 +99,7 @@ const UpdateForm = () => {
                     </label>
                     <button type="submit" className="submitButton">Submit</button>
                     <Link to="/">
-                        <button>Cancel</button>
+                        <button class="cancel">Cancel</button>
                     </Link>
                 </form>
             )
