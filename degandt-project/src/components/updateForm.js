@@ -97,7 +97,7 @@ const UpdateForm = () => {
                         onChange={handleIngChange}
                     />
                     </label>
-                    <button type="submit" className="submit-button">Submit</button>
+                    <button type="submit" className="submitButton">Submit</button>
                     <Link to="/">
                         <button>Cancel</button>
                     </Link>

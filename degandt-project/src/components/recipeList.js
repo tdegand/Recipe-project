@@ -19,7 +19,7 @@ const RecipeList = props => {
                 <div class="home-header">
                     <h3>Recipes!</h3>
                     <Link to="/recipe/add">
-                        <button>Add</button>
+                        <button class="addButton">Add</button>
                     </Link>
                 </div>
                 <ul class="recipe-items">

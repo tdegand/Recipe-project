@@ -83,7 +83,7 @@ import history from '../history';
                     onChange={handleIngredientsInputChange}
                 />
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit" className="submitButton">Submit</button>
                 <Link to="/">
                     <button>Cancel</button>
                 </Link>

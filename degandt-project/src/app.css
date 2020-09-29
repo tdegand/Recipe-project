@@ -1,10 +1,6 @@
 html{
     height: 100%;
 }
-
-#root{
-    height: 100%;
-}
 .recipes{
     position: fixed;
     top: 0;
@@ -27,4 +23,32 @@ ul.recipe-items {
     width: 50%;
     max-width: 400px;
     list-style-type: none;
+}
+button{
+    padding: 5px 10px;
+    margin: 5px;
+}
+.updatebutton, 
+.submitButton {
+    background-color: #02a502;
+    border: solid 1px #000;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease-out .2s;
+}
+.deletebutton {
+    background-color: #d80000;
+    border: solid .5px #000;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease-out .5s;
+}
+.updatebutton:hover, 
+.submitButton:hover {
+    background-color: #017301;
+}
+.deletebutton:hover{
+    background-color: #b10000;
 }
