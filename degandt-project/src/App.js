@@ -6,7 +6,7 @@ import Delete from './components/delete.js';
 import history from "./history.js"
 import axios from 'axios';
 import {
-  BrowserRouter as Router,
+  Router,
   Switch,
   Route,
 } from "react-router-dom"
@@ -25,9 +25,6 @@ class App extends Component {
       console.log(recipes)
       this.setState({ recipes });
     })
-  }
-  shouldComponentUpdate() {
-    return true
   }
 
   render() {
