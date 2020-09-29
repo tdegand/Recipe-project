@@ -32,7 +32,7 @@ const Delete = (props) => {
     return(
         <form className="search-form" onSubmit={handleDelete}>
             <label>
-                Confirm ID:
+                Confirm ID from URL:
             <input 
                 type="number" 
                 name="ID" 

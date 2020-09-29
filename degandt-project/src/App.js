@@ -26,6 +26,9 @@ class App extends Component {
       this.setState({ recipes });
     })
   }
+  shouldComponentUpdate() {
+    return true
+  }
 
   render() {
     return (
@@ -41,7 +44,7 @@ class App extends Component {
                 {/*Path for update form */}
                 <Route 
                 exact path="/recipe/update/:id" 
-                render={() => (<UpdateForm recipes={this.state.recipes}/>)} 
+                render={() => (<UpdateForm />)} 
                 />
                 {/*Path for creation form */}
                 <Route 
