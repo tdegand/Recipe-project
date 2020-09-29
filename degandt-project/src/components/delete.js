@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
+import history from '../history.js';
 
 const Delete = (props) => {
 
@@ -17,17 +18,18 @@ const Delete = (props) => {
     };
 
     const handleDelete = (e) => {
-        console.log(props.recipes.id)
+        e.preventDefault()
         axios.delete(`http://localhost:5000/api/recipes/${values.id}`, { params: { id: values.id } })
         .then(res => {
             console.log(res);
             console.log(res.data.json);
+            history.push('/')
+            window.location.reload();
         })
         .catch(res => console.log('error', res))
     }
 
     return(
-
         <form className="search-form" onSubmit={handleDelete}>
             <label>
                 Confirm ID:

@@ -3,6 +3,7 @@ import RecipeList from './components/recipeList.js';
 import UpdateForm from './components/updateForm.js';
 import NewForm from './components/newForm.js';
 import Delete from './components/delete.js';
+import history from "./history.js"
 import axios from 'axios';
 import {
   BrowserRouter as Router,
@@ -28,7 +29,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div className="App">
           <div className="container"> 
               <Switch>

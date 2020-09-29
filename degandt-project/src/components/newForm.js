@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
+import history from '../history';
 
  const NewForm = () => {
 
@@ -11,11 +12,13 @@ import { Link, withRouter } from "react-router-dom";
     });
 
     const handleSubmit = (e) => {
+        e.preventDefault()
         axios.post(`http://localhost:5000/api/recipes`, values)
         .then(res => {
-            console.log(values)
             console.log(res);
             console.log(res.data.json);
+            history.push('/');
+            window.location.reload();
         })
         .catch(res => console.log('error', res))
     }
