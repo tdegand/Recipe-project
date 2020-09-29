@@ -74,7 +74,7 @@ button{
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
-    transition: all ease-out .5s;
+    transition: all ease-out .2s;
 }
 .updatebutton:hover, 
 .submitButton:hover,
