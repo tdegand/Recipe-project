@@ -49,45 +49,49 @@ import history from '../history';
     
 
         return(
-            <form className="search-form" onSubmit={handleSubmit}>
-                <label>
-                    Name:
-                <input 
-                    type="text" 
-                    name="name" 
-                    placeholder="Name"
-                    required
-                    value={values.name}
-                    onChange={handleNameInputChange}
-                />
-                </label>
-                <label>
-                    Description:
-                <input 
-                    type="text" 
-                    name="description" 
-                    placeholder="Description" 
-                    required
-                    value={values.description}
-                    onChange={handleDescriptionInputChange}
-                />
-                </label>
-                <label>
-                    Ingredients:
-                <input 
-                    type="text" 
-                    name="ingredients" 
-                    placeholder="Ingredients"  
-                    required
-                    value={values.ingredient}
-                    onChange={handleIngredientsInputChange}
-                />
-                </label>
-                <button type="submit" className="submitButton">Submit</button>
-                <Link to="/">
-                    <button class="cancel">Cancel</button>
-                </Link>
-            </form>
+            <div className="recipes">
+                <form className="form" onSubmit={handleSubmit}>
+                    <label>
+                        Name:
+                    </label><input 
+                        type="text" 
+                        name="name" 
+                        placeholder="Name"
+                        required
+                        value={values.name}
+                        onChange={handleNameInputChange}
+                    />
+                    <label>
+                        Description:
+                    </label>
+                    <input 
+                        type="text" 
+                        name="description" 
+                        placeholder="Description" 
+                        required
+                        value={values.description}
+                        onChange={handleDescriptionInputChange}
+                    />
+                    <label>
+                        Ingredients:
+                    </label>
+                    <input 
+                        type="text" 
+                        name="ingredients" 
+                        placeholder="Ingredients"  
+                        required
+                        value={values.ingredient}
+                        onChange={handleIngredientsInputChange}
+                    />
+                    <fieldset>
+                        <button type="submit" className="submitButton">Submit</button>
+                        <Link to="/">
+                            <button className="cancel">Cancel</button>
+                        </Link>
+                    </fieldset>
+                    
+                </form>
+            </div>
         ) 
 }
 

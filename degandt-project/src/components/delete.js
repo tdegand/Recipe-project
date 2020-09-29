@@ -30,23 +30,27 @@ const Delete = (props) => {
     }
 
     return(
-        <form className="search-form" onSubmit={handleDelete}>
-            <label>
-                Confirm ID from URL:
-            <input 
-                type="number" 
-                name="ID" 
-                placeholder="Type ID to confirm"
-                required
-                value={values.id}
-                onChange={handleIdInputChange}
-            />
-            </label>
-            <button type="submit" className="submitButton">Submit</button>
-            <Link to="/">
-                <button className="cancel">Cancel</button>
-            </Link>
-        </form>
+        <div className="recipes">
+            <form className="form" onSubmit={handleDelete}>
+                <label>
+                    Confirm ID from URL:
+                </label>
+                <input 
+                    type="number" 
+                    name="ID" 
+                    placeholder="Type ID to confirm"
+                    required
+                    value={values.id}
+                    onChange={handleIdInputChange}
+                />
+                <fieldset>
+                    <button type="submit" className="submitButton">Submit</button>
+                    <Link to="/">
+                        <button className="cancel">Cancel</button>
+                    </Link>
+                </fieldset>
+            </form>
+        </div>
     );
 }
 

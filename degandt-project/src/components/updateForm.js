@@ -62,46 +62,49 @@ const UpdateForm = () => {
     }
 
             return(
-                
-                <form className="search-form" onSubmit={handleFormSubmit}>
-                    <label>
-                        Name:
-                    <input 
-                        type="text" 
-                        name="name" 
-                        placeholder="name" 
-                        required
-                        value={values.name}
-                        onChange={handleNameChange}
-                    />
-                    </label>
-                    <label>
-                        Description:
-                    <input 
-                        type="text" 
-                        name="description" 
-                        placeholder="Description"
-                        required
-                        value={values.description}
-                        onChange={handleDesChange}
-                    />
-                    </label>
-                    <label>
-                        Ingredients:
-                    <input 
-                        type="text" 
-                        name="ingredients" 
-                        placeholder="ingredients"
-                        required
-                        value={values.ingredient}
-                        onChange={handleIngChange}
-                    />
-                    </label>
-                    <button type="submit" className="submitButton">Submit</button>
-                    <Link to="/">
-                        <button class="cancel">Cancel</button>
-                    </Link>
-                </form>
+                <div className="recipes">
+                    <form className="form" onSubmit={handleFormSubmit}>
+                        <label>
+                            Name: 
+                        </label>
+                        <input 
+                            type="text" 
+                            name="name" 
+                            placeholder="name" 
+                            required
+                            value={values.name}
+                            onChange={handleNameChange}
+                        />
+                        <label>
+                            Description:
+                        </label>
+                        <input 
+                            type="text" 
+                            name="description" 
+                            placeholder="Description"
+                            required
+                            value={values.description}
+                            onChange={handleDesChange}
+                        />
+                        <label>
+                            Ingredients:
+                        </label>
+                        <input 
+                            type="text" 
+                            name="ingredients" 
+                            placeholder="ingredients"
+                            required
+                            value={values.ingredient}
+                            onChange={handleIngChange}
+                        />
+                        <fieldset>
+                            <button type="submit" className="submitButton">Submit</button>
+                            <Link to="/">
+                                <button className="cancel">Cancel</button>
+                            </Link>
+                        </fieldset>
+                    </form>
+                </div>
             )
         
 }

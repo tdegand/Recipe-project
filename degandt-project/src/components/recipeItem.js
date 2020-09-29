@@ -9,10 +9,10 @@ const Recipe = props => {
                 <p>{props.description}</p>
                 <p>{props.ingredients}</p>
                 <Link to={`/recipe/update/${props.id}`}>
-                    <button class="updatebutton">Update</button>
+                    <button className="updatebutton">Update</button>
                 </Link>
                 <Link to={`/recipe/delete/${props.id}`}>
-                    <button class="deletebutton">Delete</button>
+                    <button className="deletebutton">Delete</button>
                 </Link>
         </li>
     )
