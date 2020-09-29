@@ -16,13 +16,13 @@ const RecipeList = props => {
 
         return(
             <div className="recipes">
-                <div>
+                <div class="home-header">
                     <h3>Recipes!</h3>
                     <Link to="/recipe/add">
                         <button>Add</button>
                     </Link>
                 </div>
-                <ul>
+                <ul class="recipe-items">
                     { recipes }
                 </ul>
             </div> 

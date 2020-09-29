@@ -5,8 +5,10 @@ import NewForm from './components/newForm.js';
 import Delete from './components/delete.js';
 import history from "./history.js"
 import axios from 'axios';
+import './normalize.css';
+import './app.css';
 import {
-  Router,
+  BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom"
@@ -31,7 +33,6 @@ class App extends Component {
     return (
       <Router history={history}>
         <div className="App">
-          <div className="container"> 
               <Switch>
                 {/*Path for home page */}
                 <Route 
@@ -54,7 +55,6 @@ class App extends Component {
                 render={() => (<Delete recipes={this.state.recipes} />)} 
                 />
               </Switch>
-          </div>
         </div>
       </Router>
       

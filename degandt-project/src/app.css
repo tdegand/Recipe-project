@@ -1,0 +1,30 @@
+html{
+    height: 100%;
+}
+
+#root{
+    height: 100%;
+}
+.recipes{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.home-header {
+    text-align: center;
+}
+ul.recipe-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 85%;
+    max-width: 1200px;
+    margin: auto;
+}
+.recipe-items li {
+    width: 50%;
+    max-width: 400px;
+    list-style-type: none;
+}
