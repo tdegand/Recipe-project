@@ -17,7 +17,7 @@ const RecipeList = props => {
         return(
             <div className="recipes">
                 <div className="home-header">
-                    <h3>Recipes!</h3>
+                    <h1>Recipes!</h1>
                     <Link to="/recipe/add">
                         <button className="addButton">Add</button>
                     </Link>
