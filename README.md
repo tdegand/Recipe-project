@@ -4,7 +4,7 @@ Fullstack application Built using Node, Express, Sequelize, MySQL and React
 
 ## Getting Started
 
-To run this application in a devlopment environment follow the steps listed below
+To run this application in a devlopment environment follow the steps listed below:
 
 1. Download or clone the repository
 2. Open up a terminal of your choice and run the command `cd api`
