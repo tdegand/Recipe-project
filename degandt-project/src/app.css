@@ -28,7 +28,7 @@ html{
 }
 .home-header {
     text-align: center;
-    background: rgba(212, 180, 131, .85);
+    background: rgba(212, 180, 131, 1);
     position: unset;
     top: 0px;
 }
@@ -38,43 +38,46 @@ ul.recipe-items {
     flex-wrap: wrap;
     justify-content: center;
     width: 85%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
     margin-top: 50px;
     padding: 0;
 }
 .recipe-items li {
     width: 50%;
-    max-width: 400px;
+    max-width: 500px;
     height: fit-content;
     list-style-type: none;
     background: rgba(228, 223, 218, .9);
     margin: 10px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: solid 1px #000;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 1);
-}
-button{
-    padding: 5px 10px;
-    margin: 5px;
 }
 .updatebutton, 
 .submitButton,
 .addButton {
     background-color: #51355a;
-    border: solid 1px #000;
+    border: none;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    padding: 10px;
+    margin: 5px; 
     transition: all ease-out .2s;
+}
+.addButton{
+    margin-bottom: 10px;
 }
 .deletebutton,
 .cancel {
     background-color: #9e2b25;
-    border: solid .5px #000;
+    border: none;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    padding: 10px;
     transition: all ease-out .2s;
 }
 .updatebutton:hover, 
