@@ -1,8 +1,8 @@
-#interview-project
+# interview-project
 
 Fullstack application Built using Node, Express, Sequelize, MySQL and React
 
-##Getting Started
+## Getting Started
 
 To run this application in a devlopment environment follow the steps listed below
 
