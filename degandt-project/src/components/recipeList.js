@@ -4,6 +4,8 @@ import Recipe from './recipeItem.js'
 
 const RecipeList = props => {
 
+
+    //iterates over the passed recipe prop and renders a new recipe for each item
     let recipes = props.recipes.map(recipe =>
             <Recipe
                 key={recipe.id}

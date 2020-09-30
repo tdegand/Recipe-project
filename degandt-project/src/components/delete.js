@@ -5,10 +5,15 @@ import history from '../history.js';
 
 const Delete = (props) => {
 
+    //Uses a react hook to set and store state
     const [values, setValues] = useState({
         id: '',
     })
 
+    /**
+     * Handles the ID input field and updates the ID state
+     * @param {handleIdInputChange}  handler - ID input field
+     */
     const handleIdInputChange = (event) => {
         event.persist();
         setValues((values) => ({
@@ -17,6 +22,7 @@ const Delete = (props) => {
         }));
     };
 
+    //This will handle the deletion of Recipes from the Database
     const handleDelete = (e) => {
         e.preventDefault()
         axios.delete(`http://localhost:5000/api/recipes/${values.id}`, { params: { id: values.id } })

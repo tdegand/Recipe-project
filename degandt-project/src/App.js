@@ -16,15 +16,16 @@ import {
 
 class App extends Component {
 
+  //state for initial recipe pull from database
   state = {
     recipes: []
   }
 
+  //asynchronous call to database to get all recipes to be displayed
   async componentDidMount(){
     await axios.get(`http://localhost:5000/api/recipes`)
     .then(data => {
       const recipes = data.data.recipes;
-      console.log(recipes)
       this.setState({ recipes });
     })
   }

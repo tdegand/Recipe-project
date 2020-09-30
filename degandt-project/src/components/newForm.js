@@ -5,12 +5,14 @@ import history from '../history';
 
  const NewForm = () => {
 
+    //Uses a react hook to update and store changes to state
     const [values, setValues] = useState({
         name: '',
         description: '',
         ingredient: '',
     });
 
+    //Handles the posting of new items to the database
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.post(`http://localhost:5000/api/recipes`, values)
@@ -23,6 +25,10 @@ import history from '../history';
         .catch(res => console.log('error', res))
     }
 
+    /**
+     * Handles the Name input field and updates the name state
+     * @param {handleNameInputChange}  handler - Name input field
+     */
     const handleNameInputChange = (event) => {
         event.persist();
         setValues((values) => ({
@@ -30,7 +36,10 @@ import history from '../history';
             name: event.target.value,
         }));
     };
-
+    /**
+     * Handles the Description input field and updates the Description state
+     * @param {handleDescriptionInputChange}  handler - Description input field
+     */
     const handleDescriptionInputChange = (event) => {
         event.persist();
         setValues((values) => ({
@@ -38,7 +47,10 @@ import history from '../history';
             description: event.target.value,
         }));
     };
-
+    /**
+     * Handles the ingredients input field and updates the ingredient state
+     * @param {handleIngredientsInputChange}  handler - ingredients input field
+     */
     const handleIngredientsInputChange = (event) => {
         event.persist();
         setValues((values) => ({
