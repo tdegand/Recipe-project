@@ -1,6 +1,6 @@
 html{
     height: 100%;
-    background-image: url(/static/media/ingredients-498199.b9bb2d80.jpg);
+    background-image: url(./ingredients-498199.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -28,7 +28,7 @@ html{
 }
 .home-header {
     text-align: center;
-    background: rgba(204, 204, 204, .85);
+    background: rgba(212, 180, 131, .85);
     position: unset;
     top: 0px;
 }
@@ -48,11 +48,11 @@ ul.recipe-items {
     max-width: 400px;
     height: fit-content;
     list-style-type: none;
-    background: rgba(199, 197, 193, .9);
+    background: rgba(228, 223, 218, .9);
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, .75);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 1);
 }
 button{
     padding: 5px 10px;
@@ -61,7 +61,7 @@ button{
 .updatebutton, 
 .submitButton,
 .addButton {
-    background-color: #02a502;
+    background-color: #51355a;
     border: solid 1px #000;
     color: #fff;
     border-radius: 5px;
@@ -70,7 +70,7 @@ button{
 }
 .deletebutton,
 .cancel {
-    background-color: #d80000;
+    background-color: #9e2b25;
     border: solid .5px #000;
     color: #fff;
     border-radius: 5px;
@@ -80,11 +80,11 @@ button{
 .updatebutton:hover, 
 .submitButton:hover,
 .addButton:hover {
-    background-color: #017301;
+    background-color: #6b2682;
 }
 .deletebutton:hover,
 .cancel:hover{
-    background-color: #b10000;
+    background-color: #bb221a;
 }
 label {
 	display: inline-block;
