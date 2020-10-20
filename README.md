@@ -1,6 +1,8 @@
-# interview-project
+# Recipe-project
 
-Fullstack application Built using Node, Express, Sequelize, MySQL and React
+Fullstack application Built using Node, Express, Sequelize, MySQL and React to store Recipes and use them.
+
+Features to come include User Accounts and Authentication. Customizable Recipe Cards and many more
 
 ## Getting Started
 
